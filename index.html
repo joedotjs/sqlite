@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SQLite Visualizer, with Javascript?!</title>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    </head>
+    <body ng-app="Sequel Aight" ng-controller="Testing">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="nav nav-pills nav-stacked">
+                    <li ng-class="{ active: table === currentTable }" ng-repeat="table in tables | orderBy:table">
+                        <a ng-click="setCurrentTable(table)">{{ table }}</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-9">
+                <input type="text" ng-model="rowFilter" ng-model-options="{ debounce: 300 }" />
+                <table class="table table-striped table-condensed">
+                    <thead>
+                        <tr class="row">
+                            <td ng-repeat="field in fields">{{ field }}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="row" ng-repeat="result in results | filter:rowFilter">
+                            <td ng-repeat="field in fields">{{ result[field] }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>
