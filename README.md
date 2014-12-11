@@ -1,3 +1,8 @@
+# Install gyp
+```bash
+npm install -g nw-gyp
+```
+
 # Install nodewebkit (globally):
 ```bash
 sudo npm install -g nodewebkit@0.8.6
